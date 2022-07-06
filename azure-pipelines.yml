@@ -25,8 +25,8 @@ stages:
       - task: SonarCloudPrepare@1
         inputs:
           SonarCloud: 'Sonarcloud'
-          organization: 'devsecops-usach'
-          projectKey: 'DevSecOps-USACH_spring-clinic'
+          organization: 'descudel'
+          projectKey: 'descudel'
           projectName: 'spring-clinic'
         displayName: 'Preparing Sonarqube Environment'
     
