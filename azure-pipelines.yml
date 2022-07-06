@@ -26,8 +26,8 @@ stages:
         inputs:
           SonarCloud: 'tarea-devsecops'
           organization: 'descudel'
-          projectKey: 'descudel'
-          projectName: 'spring-clinic'
+          projectKey: 'descudel_pet-clinic'
+          projectName: 'pet-clinic'
         displayName: 'Preparing Sonarqube Environment'
     
       - task: Gradle@3
