@@ -6,15 +6,16 @@ stages:
   - job: build
     displayName: 'Build'
     steps:
-    - task: Gradle@3
+    - task: Maven@3
       inputs:
-        gradleWrapperFile: 'gradlew'
-        tasks: 'build'
+       mavenPomFile: 'pom.xml'
+        mavenOptions: '-Xmx3072m'
+        javaHomeOption: 'JDKVersion'
+        jdkVersionOption: '1.8'
+        jdkArchitectureOption: 'x64'
         publishJUnitResults: true
         testResultsFiles: '**/TEST-*.xml'
-        javaHomeOption: 'JDKVersion'
-        sonarQubeRunAnalysis: false
-        spotBugsAnalysis: false
+        goals: 'package'
 
   - job: sonar
     workspace:
@@ -35,8 +36,9 @@ stages:
           tasks: "sonarqube"
           javaHomeOption: 'JDKVersion'
           sonarQubeRunAnalysis: true
-          sqGradlePluginVersionChoice: 'specify'
-          sonarQubeGradlePluginVersion: '3.3'
+          #sqGradlePluginVersionChoice: 'specify'
+          sqMavenPluginVersionChoice: 'latest'
+          #sonarQubeGradlePluginVersion: '3.3'
         displayName: 'Analyze current Branch'
     
   
