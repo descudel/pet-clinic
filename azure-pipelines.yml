@@ -1,4 +1,4 @@
-pool:OSX
+pool: OSX
   
 stages:
 - stage: Build 
